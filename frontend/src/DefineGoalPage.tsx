@@ -1,12 +1,13 @@
 import './DefineGoalPage.css';
 import {ChangeEvent} from "react";
 import {useNavigate} from "react-router-dom";
+import {yourGoal} from "./App.tsx";
 
 type Props = {
-    setGoal1:(goal1:string) => void;
-    setGoal2:(goal2:string) => void;
-    setGoal3:(goal3:string) => void;
-    setGoal4:(goal4:string) => void;
+    setGoal1:(goal1:yourGoal) => void;
+    setGoal2:(goal2:yourGoal) => void;
+    setGoal3:(goal3:yourGoal) => void;
+    setGoal4:(goal4:yourGoal) => void;
 }
 
 
@@ -20,23 +21,25 @@ export default function (props:Props) {
 
     const nav = useNavigate();
 
-   /* function submit(){
+    function submit(){
+
         nav("/subgoals");
-    }*/
+
+    }
 
     function onChangeGoal1(event:ChangeEvent<HTMLInputElement>){
-        props.setGoal1(event.target.value);
+        props.setGoal1({description: event.target.value, id: undefined, subGoals: []});
     }
 
     function onChangeGoal2(event:ChangeEvent<HTMLInputElement>){
-        props.setGoal2(event.target.value);
+        props.setGoal2({id: undefined, description: event.target.value, subGoals: []});
     }
 
     function onChangeGoal3(event:ChangeEvent<HTMLInputElement>){
-        props.setGoal3(event.target.value);
+        props.setGoal3({id: undefined, description: event.target.value, subGoals: []});
     }
     function onChangeGoal4(event:ChangeEvent<HTMLInputElement>){
-        props.setGoal4(event.target.value);
+        props.setGoal4({ id: undefined, description: event.target.value, subGoals: []});
     }
 
     return (
@@ -45,7 +48,7 @@ export default function (props:Props) {
                 <h1>Was willst du dieses Jahr erreichen?</h1>
             </div>
             <div>
-                    <form onSubmit={()=>nav("/subgoals")} className={"container"}>
+                    <form onSubmit={submit} className={"container"}>
                         <div className={"item item1"}>
                         <label>Define goal #1</label>
                         <input id={"goal1"} type={"text"} placeholder={"Please enter a goal"}
@@ -67,7 +70,7 @@ export default function (props:Props) {
                                onChange={onChangeGoal4}/>
                         </div>
                         <div>
-                            <button className={"Save-Goals"}>Save Goals</button>
+                            <button className={"save-goals"}>Save Goals</button>
                         </div>
 
                     </form>

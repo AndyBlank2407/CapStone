@@ -1,8 +1,10 @@
 package de.neuefische.backend;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 public class SubGoal {
 
     private String event;
