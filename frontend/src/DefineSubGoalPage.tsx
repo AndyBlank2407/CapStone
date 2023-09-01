@@ -1,7 +1,7 @@
 import {TextField} from "@mui/material";
 import {useNavigate} from "react-router-dom";
 //import axios from "axios";
-import {subGoal, yourGoal} from "./App.tsx";
+import {subGoal, User, yourGoal} from "./App.tsx";
 import {ChangeEvent, FormEvent, useState} from "react";
 import axios from "axios";
 
@@ -15,23 +15,26 @@ type Props = {
     setGoal2: (goal2: yourGoal) => void;
     setGoal3: (goal3: yourGoal) => void;
     setGoal4: (goal4: yourGoal) => void;
+
+    setUser: (user: User) => void;
+    user: User|undefined;
 }
 
 export default function (props: Props) {
 
-    const [subGoal11, setSubGoal11] = useState<subGoal>({event:undefined, timeGoal: undefined, time: undefined});
-    const [subGoal12, setSubGoal12] = useState<subGoal>({event:undefined, timeGoal: undefined, time: undefined});
-    const [subGoal13, setSubGoal13] = useState<subGoal>({event:undefined, timeGoal: undefined, time: undefined});
-    const [subGoal21, setSubGoal21] = useState<subGoal>({event:undefined, timeGoal: undefined, time: undefined});
-    const [subGoal22, setSubGoal22] = useState<subGoal>({event:undefined, timeGoal: undefined, time: undefined});
-    const [subGoal23, setSubGoal23] = useState<subGoal>({event:undefined, timeGoal: undefined, time: undefined});
-    const [subGoal31, setSubGoal31] = useState<subGoal>({event:undefined, timeGoal: undefined, time: undefined});
-    const [subGoal32, setSubGoal32] = useState<subGoal>({event:undefined, timeGoal: undefined, time: undefined});
-    const [subGoal33, setSubGoal33] = useState<subGoal>({event:undefined, timeGoal: undefined, time: undefined});
-    const [subGoal41, setSubGoal41] = useState<subGoal>({event:undefined, timeGoal: undefined, time: undefined});
-    const [subGoal42, setSubGoal42] = useState<subGoal>({event:undefined, timeGoal: undefined, time: undefined});
-    const [subGoal43, setSubGoal43] = useState<subGoal>({event:undefined, timeGoal: undefined, time: undefined});
-    const [subGoalsArray, setSubGoalsArray ] = useState<subGoal[]>([])
+    const [subGoal11, setSubGoal11] = useState<subGoal>({event: undefined, timeGoal: undefined, time: undefined});
+    const [subGoal12, setSubGoal12] = useState<subGoal>({event: undefined, timeGoal: undefined, time: undefined});
+    const [subGoal13, setSubGoal13] = useState<subGoal>({event: undefined, timeGoal: undefined, time: undefined});
+    const [subGoal21, setSubGoal21] = useState<subGoal>({event: undefined, timeGoal: undefined, time: undefined});
+    const [subGoal22, setSubGoal22] = useState<subGoal>({event: undefined, timeGoal: undefined, time: undefined});
+    const [subGoal23, setSubGoal23] = useState<subGoal>({event: undefined, timeGoal: undefined, time: undefined});
+    const [subGoal31, setSubGoal31] = useState<subGoal>({event: undefined, timeGoal: undefined, time: undefined});
+    const [subGoal32, setSubGoal32] = useState<subGoal>({event: undefined, timeGoal: undefined, time: undefined});
+    const [subGoal33, setSubGoal33] = useState<subGoal>({event: undefined, timeGoal: undefined, time: undefined});
+    const [subGoal41, setSubGoal41] = useState<subGoal>({event: undefined, timeGoal: undefined, time: undefined});
+    const [subGoal42, setSubGoal42] = useState<subGoal>({event: undefined, timeGoal: undefined, time: undefined});
+    const [subGoal43, setSubGoal43] = useState<subGoal>({event: undefined, timeGoal: undefined, time: undefined});
+    //const [user, setUser] = useState<User>({yourGoals: []});
 
     const placeholderTime = "time needed in hours";
     const placeholderSubGoals = "define a sub goal";
@@ -44,7 +47,7 @@ export default function (props: Props) {
     }
 
     function onChangeTime11(event: ChangeEvent<HTMLInputElement>) {
-        setSubGoal11({event: subGoal11?.event, time: undefined,  timeGoal: Number(event.target.value)});
+        setSubGoal11({event: subGoal11?.event, time: undefined, timeGoal: Number(event.target.value)});
     }
 
     function onChangeSub12(event: ChangeEvent<HTMLInputElement>) {
@@ -52,7 +55,7 @@ export default function (props: Props) {
     }
 
     function onChangeTime12(event: ChangeEvent<HTMLInputElement>) {
-        setSubGoal12({event: subGoal12?.event, time: undefined,  timeGoal: Number(event.target.value)});
+        setSubGoal12({event: subGoal12?.event, time: undefined, timeGoal: Number(event.target.value)});
     }
 
     function onChangeSub13(event: ChangeEvent<HTMLInputElement>) {
@@ -60,7 +63,7 @@ export default function (props: Props) {
     }
 
     function onChangeTime13(event: ChangeEvent<HTMLInputElement>) {
-        setSubGoal13({event: subGoal13?.event, time: undefined,  timeGoal: Number(event.target.value)});
+        setSubGoal13({event: subGoal13?.event, time: undefined, timeGoal: Number(event.target.value)});
     }
 
     function onChangeSub21(event: ChangeEvent<HTMLInputElement>) {
@@ -68,7 +71,7 @@ export default function (props: Props) {
     }
 
     function onChangeTime21(event: ChangeEvent<HTMLInputElement>) {
-        setSubGoal21({event: subGoal21?.event, time: undefined,  timeGoal: Number(event.target.value)});
+        setSubGoal21({event: subGoal21?.event, time: undefined, timeGoal: Number(event.target.value)});
     }
 
     function onChangeSub22(event: ChangeEvent<HTMLInputElement>) {
@@ -76,7 +79,7 @@ export default function (props: Props) {
     }
 
     function onChangeTime22(event: ChangeEvent<HTMLInputElement>) {
-        setSubGoal22({event: subGoal22?.event, time: undefined,  timeGoal: Number(event.target.value)});
+        setSubGoal22({event: subGoal22?.event, time: undefined, timeGoal: Number(event.target.value)});
     }
 
     function onChangeSub23(event: ChangeEvent<HTMLInputElement>) {
@@ -84,7 +87,7 @@ export default function (props: Props) {
     }
 
     function onChangeTime23(event: ChangeEvent<HTMLInputElement>) {
-        setSubGoal23({event: subGoal23?.event, time: undefined,  timeGoal: Number(event.target.value)});
+        setSubGoal23({event: subGoal23?.event, time: undefined, timeGoal: Number(event.target.value)});
     }
 
     function onChangeSub31(event: ChangeEvent<HTMLInputElement>) {
@@ -92,7 +95,7 @@ export default function (props: Props) {
     }
 
     function onChangeTime31(event: ChangeEvent<HTMLInputElement>) {
-        setSubGoal31({event: subGoal31?.event, time: undefined,  timeGoal: Number(event.target.value)});
+        setSubGoal31({event: subGoal31?.event, time: undefined, timeGoal: Number(event.target.value)});
     }
 
     function onChangeSub32(event: ChangeEvent<HTMLInputElement>) {
@@ -100,7 +103,7 @@ export default function (props: Props) {
     }
 
     function onChangeTime32(event: ChangeEvent<HTMLInputElement>) {
-        setSubGoal32({event: subGoal32?.event, time: undefined,  timeGoal: Number(event.target.value)});
+        setSubGoal32({event: subGoal32?.event, time: undefined, timeGoal: Number(event.target.value)});
     }
 
     function onChangeSub33(event: ChangeEvent<HTMLInputElement>) {
@@ -108,7 +111,7 @@ export default function (props: Props) {
     }
 
     function onChangeTime33(event: ChangeEvent<HTMLInputElement>) {
-        setSubGoal33({event: subGoal33?.event, time: undefined,  timeGoal: Number(event.target.value)});
+        setSubGoal33({event: subGoal33?.event, time: undefined, timeGoal: Number(event.target.value)});
     }
 
     function onChangeSub41(event: ChangeEvent<HTMLInputElement>) {
@@ -116,7 +119,7 @@ export default function (props: Props) {
     }
 
     function onChangeTime41(event: ChangeEvent<HTMLInputElement>) {
-        setSubGoal41({event: subGoal41?.event, time: undefined,  timeGoal: Number(event.target.value)});
+        setSubGoal41({event: subGoal41?.event, time: undefined, timeGoal: Number(event.target.value)});
     }
 
     function onChangeSub42(event: ChangeEvent<HTMLInputElement>) {
@@ -124,7 +127,7 @@ export default function (props: Props) {
     }
 
     function onChangeTime42(event: ChangeEvent<HTMLInputElement>) {
-        setSubGoal42({event: subGoal42?.event, time: undefined,  timeGoal: Number(event.target.value)});
+        setSubGoal42({event: subGoal42?.event, time: undefined, timeGoal: Number(event.target.value)});
     }
 
     function onChangeSub43(event: ChangeEvent<HTMLInputElement>) {
@@ -132,31 +135,57 @@ export default function (props: Props) {
     }
 
     function onChangeTime43(event: ChangeEvent<HTMLInputElement>) {
-        setSubGoal43({event: subGoal43?.event, time: undefined,  timeGoal: Number(event.target.value)});
+        setSubGoal43({event: subGoal43?.event, time: undefined, timeGoal: Number(event.target.value)});
     }
 
-    function submit(event:FormEvent<HTMLFormElement>){
+    function submit(event: FormEvent<HTMLFormElement>) {
         event.preventDefault();
 
-        props.setGoal1({id: undefined, description: props.goal1?.description, subGoals: [subGoal11, subGoal12, subGoal13]});
-        props.setGoal2({id: undefined, description: props.goal1?.description, subGoals: [subGoal21, subGoal22, subGoal23]});
-        props.setGoal3({id: undefined, description: props.goal1?.description, subGoals: [subGoal31, subGoal32, subGoal33]});
-        props.setGoal4({id: undefined, description: props.goal1?.description, subGoals: [subGoal41, subGoal42, subGoal43]});
+        props.setGoal1({
+            id: undefined,
+            description: props.goal1?.description,
+            subGoals: [subGoal11, subGoal12, subGoal13]
+        });
+        props.setGoal2({
+            id: undefined,
+            description: props.goal1?.description,
+            subGoals: [subGoal21, subGoal22, subGoal23]
+        });
+        props.setGoal3({
+            id: undefined,
+            description: props.goal1?.description,
+            subGoals: [subGoal31, subGoal32, subGoal33]
+        });
+        props.setGoal4({
+            id: undefined,
+            description: props.goal1?.description,
+            subGoals: [subGoal41, subGoal42, subGoal43]
+        });
+
+
+
+        if((props.goal1 && props.goal2 && props.goal3 && props.goal4)){
+           props.setUser({yourGoals: [props.goal1, props.goal2, props.goal3, props.goal4]})
+        }
+
+        const user1:User|undefined = props.user;
+
+
+
 
         axios({
             method: 'post',
-            url: '/api',
+            url: '/api/bestmi/postUser',
             data: {
 
+            user1
             }
         }).then(() => {
-                resetAllFields();
-                axios.get('/api').then((data) => props.setDayActivity(data.data))
-                navigate('/home')
-            }
-        );
+            nav("/updateProgress");
+        });
 
-        nav("/updateProgress");
+
+      //  nav("/updateProgress");
     }
 
 
@@ -261,7 +290,7 @@ export default function (props: Props) {
                             </div>
                             <div className={"subgoal3"}>
                                 <TextField placeholder={placeholderSubGoals} variant={"standard"}
-                                           color={"primary"} onChange={onChangeSub43 } required={true}></TextField>
+                                           color={"primary"} onChange={onChangeSub43} required={true}></TextField>
                                 <TextField placeholder={placeholderTime} variant={"standard"}
                                            color={"primary"} onChange={onChangeTime43} required={true}></TextField>
                             </div>
