@@ -1,0 +1,18 @@
+.container{
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+.goalDesc{
+    justify-content: center;
+}
+
+.subGoals{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content: space-between;
+}

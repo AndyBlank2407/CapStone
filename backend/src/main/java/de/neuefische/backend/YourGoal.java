@@ -10,6 +10,6 @@ import java.util.List;
 public class YourGoal {
 
     private String id;
-    private String goalDescription;
+    private String description;
     private List<SubGoal> subGoals;
 }

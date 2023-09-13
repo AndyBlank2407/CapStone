@@ -28,7 +28,7 @@ export default function LoginPage(props:Props){
         event.preventDefault();
         axios.post("/api/users/login", undefined, {auth:{username,password}})
             .then((response) => props.setUser(response.data))
-            .then(() => nav("/home"))
+            .then(() => nav("/defineGoal"))
     }
 
     //Kein Unterscheid zweischen Button und Submitbutton, nur Submit-Button innerhalb des form-tags funktioniert

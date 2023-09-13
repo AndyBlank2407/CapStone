@@ -1,13 +1,13 @@
 import './DefineGoalPage.css';
 import {ChangeEvent} from "react";
 import {useNavigate} from "react-router-dom";
-import {yourGoal} from "./App.tsx";
+import {YourGoal} from "./App.tsx";
 
 type Props = {
-    setGoal1:(goal1:yourGoal) => void;
-    setGoal2:(goal2:yourGoal) => void;
-    setGoal3:(goal3:yourGoal) => void;
-    setGoal4:(goal4:yourGoal) => void;
+    setGoal1:(goal1:YourGoal) => void;
+    setGoal2:(goal2:YourGoal) => void;
+    setGoal3:(goal3:YourGoal) => void;
+    setGoal4:(goal4:YourGoal) => void;
 }
 
 
@@ -28,18 +28,18 @@ export default function (props:Props) {
     }
 
     function onChangeGoal1(event:ChangeEvent<HTMLInputElement>){
-        props.setGoal1({description: event.target.value, id: undefined, subGoals: []});
+        props.setGoal1({description: event.target.value, id: "", subGoals: []});
     }
 
     function onChangeGoal2(event:ChangeEvent<HTMLInputElement>){
-        props.setGoal2({id: undefined, description: event.target.value, subGoals: []});
+        props.setGoal2({id: "", description: event.target.value, subGoals: []});
     }
 
     function onChangeGoal3(event:ChangeEvent<HTMLInputElement>){
-        props.setGoal3({id: undefined, description: event.target.value, subGoals: []});
+        props.setGoal3({id: "", description: event.target.value, subGoals: []});
     }
     function onChangeGoal4(event:ChangeEvent<HTMLInputElement>){
-        props.setGoal4({ id: undefined, description: event.target.value, subGoals: []});
+        props.setGoal4({ id: "", description: event.target.value, subGoals: []});
     }
 
     return (

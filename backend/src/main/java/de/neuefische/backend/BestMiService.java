@@ -14,7 +14,19 @@ public class BestMiService {
     private final UserRepository userRepository;
 
     public User addUser(User user){
-       return userRepository.save(user);
+        if(user.getId().equals(userRepository.findById(user.getId()))){
+         User origUser = userRepository.findById(user.getId()).get();
+         origUser.setYourGoals(user.getYourGoals());
+         return origUser;
+        }
+
+        else {
+            return userRepository.save(user);
+        }
     }
 
+
+    public User getAllGoals() {
+        return userRepository.findById("1").get();
+    }
 }

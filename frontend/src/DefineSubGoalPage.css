@@ -1,16 +1,30 @@
-
-
 .container{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
+
 }
 
-.goal1{
-    border: 3px solid #333333;
+.goal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid dimgrey;
+    border-radius: 10px;
+    padding: 5px;
 }
 
-.save-sub-goals{
-    flex-direction: row;
-    justify-content: end;
+.subgoal{
+
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-between;
+}
+
+.allGoals{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
