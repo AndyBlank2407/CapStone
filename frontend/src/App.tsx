@@ -7,12 +7,14 @@ import RegisterPage from "./RegisterPage/RegisterPage.tsx";
 import LoginPage from "./LoginPage/LoginPage.tsx";
 import ProtectedRoute from "./components/ProtectedRoutes/ProtectedRoute.tsx";
 import UpdateProgressPage from "./UpdateProgressPage.tsx";
+import UpdatedGoalsPage from "./UpdatedGoalsPage.tsx";
 
 
 export type subGoal = {
     event: string,
-    time: number|undefined,
-    timeGoal: number
+    time: number,
+    timeGoal: number,
+    timeGoalStat: number
 
 }
 
@@ -57,7 +59,8 @@ function App() {
                    />}/>
 
             <Route path={"/updateProgress"}
-                   element={<UpdateProgressPage goal1={goal1} goal2={goal2} goal3={goal3} goal4={goal4}/>}/>
+                   element={<UpdateProgressPage/>}/>
+            <Route path={"/updatedGoals"} element={<UpdatedGoalsPage/>}/>
         </Routes>
 
     )

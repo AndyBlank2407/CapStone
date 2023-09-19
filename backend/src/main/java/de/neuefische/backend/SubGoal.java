@@ -10,5 +10,6 @@ public class SubGoal {
     private String event;
     private int time;
     private int timeGoal;
+    private int timeGoalStat;
 
 }

@@ -13,20 +13,27 @@ public class BestMiController {
     private final BestMiService bestMiService;
 
     @GetMapping("/sayhello")
-    public String sayHello(){
+    public String sayHello() {
         return "Hello";
     }
 
     @PostMapping("/postUser")
-    public User postUser(@RequestBody User user){
+    public User postUser(@RequestBody User user) {
         return bestMiService.addUser(user);
     }
 
     @GetMapping("/getAllGoals")
-    public User getAllGoals(){
+    public User getAllGoals() {
         return bestMiService.getAllGoals();
     }
 
+    @PutMapping("/updateTime")
+    public User updateUser(@RequestBody User user) {
+        return bestMiService.updateGoalTime(user);
+    }
 
 
 }
+
+
+

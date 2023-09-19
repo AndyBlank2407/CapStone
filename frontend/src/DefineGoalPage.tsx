@@ -2,6 +2,7 @@ import './DefineGoalPage.css';
 import {ChangeEvent} from "react";
 import {useNavigate} from "react-router-dom";
 import {YourGoal} from "./App.tsx";
+import {Button} from "@mui/material";
 
 type Props = {
     setGoal1:(goal1:YourGoal) => void;
@@ -43,39 +44,48 @@ export default function (props:Props) {
     }
 
     return (
-        <div>
-            <div>
-                <h1>Was willst du dieses Jahr erreichen?</h1>
+
+        <div >
+            <div className={"imageContainer"}>
+            <img src={"./triangle_logo.png"} alt={"here the logo should be"}/>
             </div>
+
+            <div className={"container"}>
+
             <div>
-                    <form onSubmit={submit} className={"container"}>
-                        <div className={"item item1"}>
-                        <label>Define goal #1</label>
+                <h1 className={"headline"}>What goals do you want to reach?</h1>
+            </div>
+            <div className={"card"}>
+                    <form onSubmit={submit} className={"form-div"}>
+                        <div className={"goal-row"}>
+                        <label className={"pad-right"}>Define goal #1</label>
                         <input id={"goal1"} type={"text"} placeholder={"Please enter a goal"}
                                onChange={onChangeGoal1} required={true}/>
                         </div>
-                        <div className={"item item2"}>
-                        <label>Define goal #2</label>
+                        <div className={"goal-row"}>
+                        <label className={"pad-right"}>Define goal #2</label>
                         <input id={"goal2"} type={"text"} placeholder={"Please enter a goal"}
-                               onChange={onChangeGoal2}/>
+                               onChange={onChangeGoal2} required={true}/>
                         </div>
-                        <div className={"item item3"}>
-                        <label>Define goal #3</label>
+                        <div className={"goal-row"}>
+                        <label className={"pad-right"}>Define goal #3</label>
                         <input id={"goal3"} type={"text"} placeholder={"Please enter a goal"}
-                               onChange={onChangeGoal3}/>
+                               onChange={onChangeGoal3} required={true}/>
                         </div>
-                        <div className={"item item4"}>
-                        <label>Define goal #4</label>
+                        <div className={"goal-row"}>
+                        <label className={"pad-right"}>Define goal #4</label>
                         <input id={"goal4"} type={"text"} placeholder={"Please enter a goal"}
-                               onChange={onChangeGoal4}/>
+                               onChange={onChangeGoal4} required={true}/>
                         </div>
-                        <div>
-                            <button className={"save-goals"}>Save Goals</button>
+                        <div className={"btn-row"}>
+                            <Button type={"submit"} onClick={submit}>Save goals</Button>
                         </div>
 
                     </form>
 
             </div>
+
+        </div>
 
         </div>
     )

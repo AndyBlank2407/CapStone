@@ -1,0 +1,19 @@
+progress {
+    width: 155px;
+    height : 11px;
+    border: 2px solid goldenrod;
+    border-radius: 8px;
+    margin-bottom: 3px;
+}
+progress::-webkit-progress-bar {
+    background-color: gainsboro;
+}
+progress::-webkit-progress-value {
+    background-color: goldenrod;
+}
+
+.btn_updated_page{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}

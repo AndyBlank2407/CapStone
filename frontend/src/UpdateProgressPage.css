@@ -16,3 +16,31 @@
     justify-content: flex-start;
     align-content: space-between;
 }
+
+.headline-goal {
+    text-align: center;
+    margin-bottom: 5px;
+
+}
+
+.data-pad {
+    padding-right: 30px;
+}
+
+.background-color {
+    background-color: #257dbe;
+}
+
+.color-white {
+    color: white;
+}
+
+.btn_update_progress {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.fs-special {
+    font-size: 25px;
+}
