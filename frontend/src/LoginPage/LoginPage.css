@@ -1,0 +1,66 @@
+.logo-container-l {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:70%;
+    margin-bottom: 30px;
+}
+
+.login-input{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.input2{
+    margin-top: 10px;
+
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.direction-link{
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.login-header{
+    display: flex;
+    justify-content: center;
+}
+
+.login-btn{
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.image-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* or, for legacy browsers */
+
+::-webkit-input-placeholder {
+    text-align: center;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+    text-align: center;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+    text-align: center;
+}
+
+:-ms-input-placeholder {
+    text-align: center;
+}

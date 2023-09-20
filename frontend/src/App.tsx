@@ -1,35 +1,69 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import {Route, Routes} from "react-router-dom";
+import DefineGoalPage from "./DefineGoalPage.tsx";
+import {useState} from "react";
+import DefineSubGoalPage from "./DefineSubGoalPage.tsx";
+import RegisterPage from "./RegisterPage/RegisterPage.tsx";
+import LoginPage from "./LoginPage/LoginPage.tsx";
+import ProtectedRoute from "./components/ProtectedRoutes/ProtectedRoute.tsx";
+import UpdateProgressPage from "./UpdateProgressPage.tsx";
+import UpdatedGoalsPage from "./UpdatedGoalsPage.tsx";
+
+
+export type subGoal = {
+    event: string,
+    time: number,
+    timeGoal: number,
+    timeGoalStat: number
+
+}
+
+export type YourGoal = {
+    id: string,
+    description: string,
+    subGoals: subGoal[]
+}
+
+export type User = {
+    yourGoals: YourGoal[]
+
+}
 
 function App() {
-  const [count, setCount] = useState(0)
+    // const [count, setCount] = useState(0)
+    const [goal1, setGoal1] = useState<YourGoal>({id: "", description: "", subGoals:[]});
+    const [goal2, setGoal2] = useState<YourGoal>({id: "", description: "", subGoals:[]});
+    const [goal3, setGoal3] = useState<YourGoal>({id: "", description: "", subGoals:[]});
+    const [goal4, setGoal4] = useState<YourGoal>({id: "", description: "", subGoals:[]});
+    const [userProfile, setUserProfile] = useState<User>({yourGoals: []});
+    const [user, setUser] = useState("");
+    //const[goals , setGoals] = useState<undefined|string>([]);
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    console.log(userProfile);
+
+
+    return (
+
+        <Routes>
+            <Route path={"/register"} element={<RegisterPage/>}/>
+            <Route path={'/'} element={<LoginPage setUser={setUser}/>}/>
+
+            <Route element={<ProtectedRoute user={user}/>}/>
+
+            <Route path="/defineGoal" element={<DefineGoalPage setGoal1={setGoal1} setGoal2={setGoal2}
+                                                     setGoal3={setGoal3} setGoal4={setGoal4}/>}/>
+            <Route path={"/subgoals"}
+                   element={<DefineSubGoalPage goal1={goal1} goal2={goal2} goal3={goal3} goal4={goal4}
+                                               setGoal1={setGoal1} setGoal2={setGoal2} setGoal3={setGoal3}
+                                               setGoal4={setGoal4} setUserProfile={setUserProfile} userProfile={userProfile}
+                   />}/>
+
+            <Route path={"/updateProgress"}
+                   element={<UpdateProgressPage/>}/>
+            <Route path={"/updatedGoals"} element={<UpdatedGoalsPage/>}/>
+        </Routes>
+
+    )
 }
 
 export default App
