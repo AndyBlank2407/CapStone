@@ -38,3 +38,9 @@
     flex-direction: column;
     gap: 10px;
 }
+
+.imageContainer{
+    display: flex;
+    justify-content: space-between;
+
+}

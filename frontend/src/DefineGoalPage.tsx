@@ -47,13 +47,16 @@ export default function (props:Props) {
 
         <div >
             <div className={"imageContainer"}>
-            <img src={"./triangle_logo.png"} alt={"here the logo should be"}/>
+                <img src={"./triangle_logo.png"} alt={"here the logo should be"}/>
+                <img src={"./triangle_logo.png"} alt={"here the logo should be"}/>
             </div>
+
 
             <div className={"container"}>
 
             <div>
-                <h1 className={"headline"}>What goals do you want to reach?</h1>
+                <h1 className={"headline"}>Welcome to BestMe!</h1>
+                <h2 className={"headline"}>What goals do you want to reach?</h2>
             </div>
             <div className={"card"}>
                     <form onSubmit={submit} className={"form-div"}>

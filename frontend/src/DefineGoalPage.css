@@ -37,6 +37,11 @@ img{
 
 .imageContainer{
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+
 }
 
+.imageContainer1{
+    display: flex;
+    justify-content: flex-start;
+}
