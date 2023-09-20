@@ -128,10 +128,6 @@ export default function () {
     }
 
 
-    function cancel() {
-        nav("/subGoals");
-
-    }
 
 
     return (
@@ -488,7 +484,6 @@ export default function () {
 
                     </div>
                     <div className={"btn_update_progress"}>
-                        <Button onClick={cancel}>Cancel</Button>
                         <Button type={"submit"} onClick={submit}>Save progress</Button>
                     </div>
 
