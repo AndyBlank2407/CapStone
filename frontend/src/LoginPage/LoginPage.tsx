@@ -32,9 +32,6 @@ export default function LoginPage(props: Props) {
             .then(() => nav("/defineGoal"))
     }
 
-    //Kein Unterscheid zweischen Button und Submitbutton, nur Submit-Button innerhalb des form-tags funktioniert
-    //auch beim Enter drücken. Standardfunktion, wenn kein Attr ausgewählt, von Button ist auch ein Submit
-    //man brauch dann aber ein Form zum Zuhören
 
     return (
         <div>

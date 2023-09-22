@@ -12,11 +12,6 @@ public class BestMiController {
 
     private final BestMiService bestMiService;
 
-    @GetMapping("/sayhello")
-    public String sayHello() {
-        return "Hello";
-    }
-
     @PostMapping("/postUser")
     public User postUser(@RequestBody User user) {
         return bestMiService.addUser(user);

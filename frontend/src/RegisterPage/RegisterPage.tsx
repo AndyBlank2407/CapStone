@@ -23,7 +23,7 @@ export default function RegisterPage() {
     }
 
 
-    //"type" bei Button nicht nötig, weil standardmäßig submit-funkt.
+
     return (
         <div>
             <form onSubmit={register}>

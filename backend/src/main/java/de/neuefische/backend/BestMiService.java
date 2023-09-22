@@ -7,7 +7,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
-@Data
 @RequiredArgsConstructor
 public class BestMiService {
 
@@ -25,7 +24,14 @@ public class BestMiService {
 
 
     public User getAllGoals() {
-        return userRepository.findById("1").get();
+        if(userRepository.existsById("1")){
+            return userRepository.findById("1").get();
+        }
+
+        else{
+            return new User();
+        }
+
     }
 
     public User updateGoalTime(User user) {
