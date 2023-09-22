@@ -16,8 +16,7 @@ export default function () {
 
     const [yourGoals, setYourGoals] = useState<yourGoal[] | undefined>(undefined)
 
-    const hoursInvestedString = "Hours invested so far:";
-    const hoursToReachSubGoalString = "Hours left to complete the subGoal:"
+
     const nav = useNavigate();
 
 
@@ -26,8 +25,6 @@ export default function () {
             method: 'get',
             url: '/api/bestmi/getAllGoals'
         }).then(function (response) {
-            console.log("Response status", response.status);
-            console.log("Response body", response.data.yourGoals); // Ganzer Response body is bis data
             setYourGoals(response.data.yourGoals);
 
 
@@ -35,23 +32,7 @@ export default function () {
     }, []);
 
 
-    let progrSoll11;
-    let progrIst11;
-    let progrSoll12;
-    let progrIst12;
-    let progrSoll13;
-    let progrIst13;
 
-    if (yourGoals) {
-
-        progrSoll11 = yourGoals[0].subGoals[0].timeGoal.toString();
-        progrIst11 = yourGoals[0].subGoals[0].time.toString();
-        progrSoll12 = yourGoals[0].subGoals[1].timeGoal.toString();
-        progrIst12 = yourGoals[0].subGoals[1].time.toString();
-        progrSoll13 = yourGoals[0].subGoals[2].timeGoal.toString();
-        progrIst13 = yourGoals[0].subGoals[2].time.toString();
-
-    }
 
 
     return (

@@ -14,11 +14,7 @@ type Props = {
 
 
 export default function (props:Props) {
-/*
-    const[goal1, setGoal1] = useState("");
-    const[goal2, setGoal2] = useState("");
-    const[goal3, setGoal3] = useState("");
-    const[goal4, setGoal4] = useState("");*/
+
 
     const nav = useNavigate();
 
